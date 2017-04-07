@@ -1,0 +1,140 @@
+/* Main Style Sheet for TimeSheets */
+
+body {
+	font-family: arial;
+	/*set default font size for EM calculation*/
+	font-size: 14px;
+}
+
+tr {
+	border: 1px solid #999999;
+	padding: 3px 10px;
+ 	white-space: nowrap;
+	background: #f9f9f9;
+}
+
+th{
+	background-color: #E1E1E1;
+	font-weight: bold;
+  	font-size: .95em;
+  	border:1px solid black;
+  	padding: 2px 5px;
+  
+}
+
+td {
+	font-size:0.8em;
+	padding:3px;
+	border: 1px solid black;
+}
+
+input {
+	padding: 5px 0px;
+	width: 100px;
+
+}
+
+
+.heading {
+	width: 35%;
+	clear: left;
+	float: left;
+	/*background: #e8eaef;*/
+
+	
+}
+
+.heading img {
+	max-width:200px;
+	float:left;
+	margin-left: 15px;
+	margin-right: 15px;
+	/*padding: 15px;*/
+
+}
+
+.heading h2 {
+	vertical-align: middle;
+	margin-top:15px;
+}
+
+#timeSheetTable {
+	float: left;
+	clear: left;
+}
+
+.table{
+ 	margin: 7px 15px;
+ 	/*background: #e8eaef;*/
+ 	border: 1px solid black;
+ 	float:left;
+}
+
+.infoHolder {
+	float:left;
+	margin-left: 15px;
+	padding-top:15px;
+	width:50%;
+	font-size: 12px;
+}
+
+#ptoTable {
+	float:left;
+	clear:left;
+}
+
+#ptoTable th{
+	font-size: .9em; 
+ }
+
+#ptoTable td {
+	width: 125px;
+	font-size: .75em;
+}
+
+#ptoTable input {
+	border: 0px;
+	width: 125px;
+	background: #f9f9f9;
+}
+
+.weeklyTotal > td {
+	background-color:#6f6f6f;
+	color: #f3f3f3;
+}
+
+
+.borderRight {
+	border-right: 1px solid black;
+}
+
+.underline input {
+	border-bottom: 3px solid black;
+}
+
+.blank {
+	background: #6f6f6f;
+}
+
+
+.warning {
+	background: red;
+	color:white!important;
+}
+
+.warning input {
+	background: red!important;
+	color:white!important;
+}
+
+.button {
+	float:left;
+	margin: 20px 15px;
+	width: 200px;
+}
+
+
+/* add function to mimic this for people are eligable for overtime */
+.overtime {
+	display:none;
+}
