@@ -342,3 +342,141 @@ function overTimeEligiable () {
     $("th").removeClass("overtime");
     $("td").removeClass("overtime");
 }
+
+function calculateTotals2() {
+  "use strict";
+  
+  var container = document.querySelector('.added-container');
+  
+  function getValues(selector) {
+    var inputs = document.querySelectorAll(selector);
+    var values = [];
+    inputs.forEach( input => values.push(parseFloat(input.value)) );
+    var addedTotal = values.reduce((total, x) => {
+      return total+=x;
+    }, 0);
+    
+    return addedTotal.toFixed(2);
+  }
+  
+  function getWeek(num) {
+    return {
+      days: [{
+        day: "Tuesday",
+        total: getValues(`.js-tue-${num}`)
+      }, {
+        day: "Wednesday",
+        total: getValues(`.js-wed-${num}`)
+      }, {
+        day: "Thursday",
+        total: getValues(`.js-thu-${num}`)
+      }, {
+        day: "Friday",
+        total: getValues(`.js-fri-${num}`)
+      }, {
+        day: "Saturday",
+        total: getValues(`.js-sat-${num}`)
+      }, {
+        day: "Sunday",
+        total: getValues(`.js-sun-${num}`)
+      }, {
+        day: "Monday",
+        total: getValues(`.js-mon-${num}`)
+      }],
+      
+      total: getValues(`.js-week-${num}`) 
+    }
+  }
+  
+  var data = {
+    week1: getWeek(1),
+    week2: getWeek(2),
+    regularTotal: getValues('.js-regular'),
+    vacationTotal: getValues('.js-vacation'),
+    sickTotal: getValues('.js-sick'),
+    otherTotal: getValues('.js-other'),
+    overtimeTotal: getValues('.js-overtime'),
+    holidayTotal: getValues('.js-holiday')
+  }
+  
+//  IDEA: different way to show the added totals into the DOM 
+//
+//   function output(week) {
+//     week.days.forEach( day => {
+//       // not sure what the output is supposed to look like
+//       container.insertAdjacentHTML('beforeend', `
+//         <span class="added">${day.name}: ${day.total}</span>
+//       `);
+//     });
+//   }
+//   output(data.week1);
+//   output(data.week2);
+//
+// THIS WOULD REPLACE THE CODE BELOW
+  
+  $('#added1').html(data.week1.days[0].total);
+  $('#added2').html(data.week1.days[1].total);
+  $('#added3').html(data.week1.days[2].total);
+  $('#added4').html(data.week1.days[3].total);
+  $('#added5').html(data.week1.days[4].total);
+  $('#added6').html(data.week1.days[5].total);
+  $('#added7').html(data.week1.days[6].total);
+  $('#added8').html(data.week2.days[0].total);
+  $('#added9').html(data.week2.days[1].total);
+  $('#added10').html(data.week2.days[2].total);
+  $('#added11').html(data.week2.days[3].total);
+  $('#added12').html(data.week2.days[4].total);
+  $('#added13').html(data.week2.days[5].total);
+  $('#added14').html(data.week2.days[6].total);
+  
+  
+  
+  // vacation variables
+  var beginningVacationLeave = parseFloat($("#beginningVacationLeave").val());
+  var earnedVacationLeave = parseFloat($("#earnedVacationLeave").val());
+  var subVacationLeave = earnedVacationLeave + beginningVacationLeave;
+  var hoursUsedVacation = vacationTotal;
+  var hoursEndingVacation = (subVacationLeave - hoursUsedVacation).toFixed(2);
+  
+  // Convert hours to days 
+  var daysEndingVacation = (hoursEndingVacation / 8).toFixed(2);
+  var vacationTotalUsed = vacationTotal;
+  hoursEndingVacation = parseFloat(hoursEndingVacation);
+  
+  // Check for negative vacation hours. Provide popup/display noting how many days til time available
+  if (hoursEndingVacation < 0) {
+    $("#endingVacationHoursTD").addClass("warning");
+    $("#endingVacationDaysTD").addClass("warning");
+  } else {
+    $("#endingVacationHoursTD").removeClass("warning");
+    $("#endingVacationDaysTD").removeClass("warning");
+  }
+  
+  vacationTotals = {
+    vacationTotalUsed: vacationTotalUsed,
+    hoursEndingVacation: hoursEndingVacation
+  };
+
+  // Display Totals
+  (function() {    
+    // Weekly Totals
+    $("#regularTotal").html(data.regularTotal);
+    $("#vacationTotal").html(data.vacationTotal);
+    $("#sickTotal").html(data.sickTotal);
+    $("#vacationTotalUsed").html(vacationTotalUsed);
+    $("#otherTotal").html(data.otherTotal);
+    $("#overtimeTotal").html(data.overtimeTotal);
+    $("#holidayTotal").html(data.holidayTotal);
+    $("#weekTotal1").html(data.week1.total);
+    $("#weekTotal2").html(data.week2.total);
+
+    // PTO Totals
+
+    // Vaca Time Totals
+    $("#subVacationLeave").html(subVacationLeave);
+    $("#hoursUsedVacation").html(hoursUsedVacation);
+    $("#hoursEndingVacation").attr('value', hoursEndingVacation);
+    $("#daysEndingVacation").html(daysEndingVacation);
+  })();
+
+}
