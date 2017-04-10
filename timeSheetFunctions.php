@@ -65,30 +65,33 @@ function createDateRangeTable($strDateFrom,$strDateTo)
 			echo '<td>' . $dayOfWeek . '<br />' .$singleDate . '</td>
 
 			<td> 
-			<input type="text" name="regularHours'.$dayOfPayPeriod.'" id="regularHours'.$dayOfPayPeriod.'" value="';
-				if ($dayOfWeek == "Saturday" || $dayOfWeek == "Sunday") {
-					echo '0">';
-				}
-
-				else {
-				 	echo '8">';
-				}	
+			<input 
+				class="js-week-'.$dayOfPayPeriod.' js-regular"
+				type="text" 
+				name="regularHours'.$dayOfPayPeriod.'" 
+				id="regularHours'.$dayOfPayPeriod.'" 
+				value="';
+					if ($dayOfWeek == "Saturday" || $dayOfWeek == "Sunday") {
+						echo '0">';
+					} else {
+						echo '8">';
+					}	
 
 			echo '</td>
 				<td>
-					<input type="text" id="vacationHours'.$dayOfPayPeriod.'" name="vacationHours'.$dayOfPayPeriod.'" value="0"  class="">
+					<input type="text" id="vacationHours'.$dayOfPayPeriod.'" name="vacationHours'.$dayOfPayPeriod.'" value="0"  class="js-vacation">
 				</td>
 				<td> 
-					<input type="text" id="sickHours'.$dayOfPayPeriod.'" name="sickHours'.$dayOfPayPeriod.'" value="0"  class="">
+					<input type="text" id="sickHours'.$dayOfPayPeriod.'" name="sickHours'.$dayOfPayPeriod.'" value="0"  class="js-sick">
 				</td>
 				<td> 
-					<input type="text" id="otherHours'.$dayOfPayPeriod.'" name="otherHours'.$dayOfPayPeriod.'" value="0"  class="">
+					<input type="text" id="otherHours'.$dayOfPayPeriod.'" name="otherHours'.$dayOfPayPeriod.'" value="0"  class="js-other">
 				</td>
 				<td class="overtime"> 
-					<input type="text" id="overtimeHours'.$dayOfPayPeriod.'" name="overtimeHours'.$dayOfPayPeriod.'" value="0">
+					<input type="text" id="overtimeHours'.$dayOfPayPeriod.'" name="overtimeHours'.$dayOfPayPeriod.'" value="0" class="js-overtime>
 				</td>
 				<td> 
-					<input type="text" id="holidayHours'.$dayOfPayPeriod.'" name="holidayHours'.$dayOfPayPeriod.'" value="0"  class="">
+					<input type="text" id="holidayHours'.$dayOfPayPeriod.'" name="holidayHours'.$dayOfPayPeriod.'" value="0"  class="js-holiday">
 				</td>
 				<td class="borderRight"> 
 					<span id="added'.$dayOfPayPeriod.'"></span>
@@ -114,6 +117,8 @@ function createDateRangeTable($strDateFrom,$strDateTo)
 		$dayOfPayPeriod ++;		
 		
 		}
+		
+		echo '<div class="add-container"></div>';
 	}
 
 	function checkSickTime ($vacationRate, $beginningVacationTime, $sickRate, $beginningNewSickLeave, $oldSickTime) {

@@ -11,10 +11,10 @@
 </script>
 <script> 
     $(document).ready(function() {
-        calculateTotals();
+        calculateTotals2();
 
         // buildArray();
-        $("input").keyup(calculateTotals);
+        $("input").keyup(calculateTotals2);
     });
 <?php 
     if (!empty($oldSickTime)) {
