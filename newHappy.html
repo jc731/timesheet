@@ -1,0 +1,181 @@
+<html>
+<head>
+<script>
+
+var data = {
+  wk1: {
+    monday: {
+      regular: 0,
+      vacation: 0
+    }
+  },
+  wk2: {}
+}
+
+function calcDay(week, day) {
+  // week = "wk1"
+  // day = "monday"
+  var inputs = $("js-" + week + "-" + day);
+  var total = 0;
+  inputs.forEach(function(input) {
+    total += input.value;
+  })
+  
+  return total;
+}
+
+var allTheInputs = $(input);
+allTheInputs.forEach(function(input) {
+  input.oninput = function() {
+  //   data.wk1.monday
+    data[input.dataset.week][input.dataset.day] = calcDay(input.dataset.week, input.dataset.day);
+    data[input.dataset.week].total = calcWeek(input.dataset.week);
+    updateView();
+
+  }
+})
+
+function updateView() {
+  var wk1 = generateWeek("1");
+  var wk2 = generateWeek("2");
+  var totals = generateTotals();
+  $(container).html(wk1+wk2+totals)
+}
+  
+function generateWeek(weekNumber) {
+  var monday = generateDay(weekNumber, "monday");
+  var tuesday;
+  return monday + tuesday;
+}
+  
+function generateDay(week, day) {
+//   var rowHTML = "<tr>" +
+//     "<td>" + day + "<br>" + date + "</td>"
+  var rowHTML = `
+    <tr>
+        <td>${day} <br /> 1-1-01</td>
+        <td> 
+            <input 
+              class="js-wk${week}-${day} js-regular"
+              type="text" 
+              name="regularHours'.$dayOfPayPeriod.'" 
+              id="regularHours'.$dayOfPayPeriod.'" 
+              value="${data["wk" + week][day].regular}"
+              data-day="${day}"
+              data-week="wk1"
+              >
+        </td>
+        <td>
+            <input 
+            type="text" 
+            id="" 
+            name="" 
+            value="${data["wk" + week][day].vacation}"  
+            class="js-week-1-monday js-vacation">
+        </td>
+        <td> 
+            <input 
+            type="text" 
+            id="" name="" 
+            value="0"  
+            class="js-week-1-monday js-sick">
+        </td>
+        <td> 
+            <input 
+            type="text" 
+            id="" 
+            name="" 
+            value="0"  
+            class="js-week-1-monday js-other">
+        </td>
+
+        <td class="overtime"> 
+            <input 
+            type="text" 
+            id="" 
+            name="" 
+            value="0" 
+            class="js-week-1-monday js-overtime">
+        </td>
+        <td> 
+            <input 
+            type="text" 
+            id="" 
+            name="" 
+            value="0"  
+            class="js-week-1-monday js-holiday">
+        </td>
+    </tr>
+
+  `
+  
+  return rowHTML
+}
+
+// calc total of day(s)
+// calc total of week(s)
+// calc grand total
+
+</script>
+
+</head>
+
+<body>
+<table> 
+<tr>
+    <td>monday <br /> 1-1-01</td>
+    <td> 
+        <input 
+          class="js-wk1-monday js-regular"
+          type="text" 
+          name="regularHours'.$dayOfPayPeriod.'" 
+          id="regularHours'.$dayOfPayPeriod.'" 
+          value="8"
+          data-day="monday"
+          data-week="wk1"
+          >
+    </td>
+    <td>
+        <input 
+        type="text" 
+        id="" 
+        name="" 
+        value="0"  
+        class="js-week-1-monday js-vacation">
+    </td>
+    <td> 
+        <input 
+        type="text" 
+        id="" name="" 
+        value="0"  
+        class="js-week-1-monday js-sick">
+    </td>
+    <td> 
+        <input 
+        type="text" 
+        id="" 
+        name="" 
+        value="0"  
+        class="js-week-1-monday js-other">
+    </td>
+
+    <td class="overtime"> 
+        <input 
+        type="text" 
+        id="" 
+        name="" 
+        value="0" 
+        class="js-week-1-monday js-overtime">
+    </td>
+    <td> 
+        <input 
+        type="text" 
+        id="" 
+        name="" 
+        value="0"  
+        class="js-week-1-monday js-holiday">
+    </td>
+</tr>
+
+</table>
+</body>
