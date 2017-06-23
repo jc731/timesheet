@@ -27,7 +27,7 @@ function getPayPeriod() {
   
   // Calculate the last day of the pay period
   var lastDayOfPayPeriod = new Date();
-  lastDayOfPayPeriod.setDate(lastDayOfPayPeriod.getDate()- daysLeftInPayPeriod);
+  lastDayOfPayPeriod.setDate(lastDayOfPayPeriod.getDate() + daysLeftInPayPeriod);
 
   return {
     firstDayOfPayPeriod: firstDayOfPayPeriod,

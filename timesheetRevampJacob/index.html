@@ -11,25 +11,14 @@
     }
 
   </style>
-  <script src="./payPeriod.js"> 
-    var payPeriod = getPayPeriod(); 
-    console.log(payPeriod);
-  </script>
+  
 </head>
 <body>
   <div class="app">
    
   </div>
-  <script>
-  if (window.NodeList && !NodeList.prototype.forEach) {
-    NodeList.prototype.forEach = function (callback, argument) {
-        argument = argument || window;
-        for (var i = 0; i < this.length; i++) {
-            callback.call(argument, this[i], i, this);
-        }
-    };
-  }
-  </script>
+  <script src="./payPeriod.js"></script>
+  <script src="./calc.js"></script>
   <script src="./data.js"></script>
   <script src="./generateView.js"></script>
   <script>
