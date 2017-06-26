@@ -15,7 +15,7 @@ function generateView(month, day, year) {
         var row = "<tr>";
 
         // the label in front of each row
-        row += "<td>" + day + "</td>";
+        row += "<td class='dayOfWeek'>" + day + "</td>";
 
         // loop over the different hour types
         Object.getOwnPropertyNames(data[week][day]).forEach(function (hours) {
@@ -23,7 +23,7 @@ function generateView(month, day, year) {
         });
 
         // add a total for that day
-        row += "\n          <td>\n            <input\n              type=\"number\"\n              readonly\n              value=\"0\"\n              data-week=\"" + week + "\"\n              data-day=\"" + day + "\"\n              data-hours=\"total\"\n              data-total=\"true\">\n          </td>";
+        row += "\n          <td clas='dayTotal'>\n            <input\n              type=\"number\"\n              readonly\n              value=\"0\"\n              data-week=\"" + week + "\"\n              data-day=\"" + day + "\"\n              data-hours=\"total\"\n              data-total=\"true\">\n          </td>";
 
         row += "</tr>";
         view += row;
@@ -31,7 +31,7 @@ function generateView(month, day, year) {
     });
 
     // after the week add an additional week total row
-    view += "\n      <tr>\n        <td>Week Total: </td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"regular\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"vacation\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"sick\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"other\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"overtime\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"holiday\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"total\"></td>\n      </tr>";
+    view += "\n      <tr class='Weeklytotal'>\n        <td></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"regular\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"vacation\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"sick\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"other\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"overtime\"></td>\n        <td><input readonly data-week-total=\"" + week + "\" data-hour-total=\"holiday\"></td>\n        <td class='showTotal'>Weekly Total</td><td class='showTotal totalValue'><input readonly data-week-total=\"" + week + "\" data-hour-total=\"total\"></td>\n      </tr>";
 
     // then add an empty row for spacing
     view += "<tr class=\"empty-row\"></tr>";
@@ -40,3 +40,4 @@ function generateView(month, day, year) {
   view += "</table>";
   return view;
 }
+

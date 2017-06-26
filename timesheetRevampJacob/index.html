@@ -1,14 +1,79 @@
-<html lang="en"><head>
+<html lang="en">
+  <head>
   <meta charset="UTF-8">
   <title></title>
+  <link rel="stylesheet" type="text/css" href="https://material.angularjs.org/1.1.4/docs.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.4/angular-material.css">
   <style>
-    [data-week], [data-week-total] {
-      width: 100px;
-    }
+    body {
+  font-family: arial;
+  /*set default font size for EM calculation*/
+  font-size: 14px;
+  }
 
-    .empty-row {
-      height: 2em;
-    }
+  tr {
+    border: 1px solid #999999;
+    padding: 3px 10px;
+    white-space: nowrap;
+    background: #f9f9f9;
+  }
+
+  th{
+    background-color: #E1E1E1;
+    font-weight: bold;
+      font-size: .95em;
+      border:1px solid black;
+      padding: 2px 5px;
+    
+  }
+
+  td {
+    font-size:0.8em;
+    padding:3px;
+    border: 1px solid black;
+  }
+
+  input {
+    padding: 5px 0px;
+    width: 100px;
+  }
+
+  input[type="checkbox"] {
+    width:15px;
+  }
+
+  input[readonly]
+  {
+      background-color:#E1E1E1;
+  }
+  [data-week], [data-week-total] {
+    width: 100px;
+  }
+
+  .empty-row {
+    height: 2em;
+  }    
+
+  .dayOfWeek {
+    text-transform: capitalize;
+  }
+
+  .weeklyTotal > td {
+  background-color:#6f6f6f;
+  color: #f3f3f3;
+  font-size: 1.1em;
+  }
+
+  .weeklyTotal input {
+    background-color:#6f6f6f;
+    color: #6f6f6f;
+    border: none;
+  }
+
+  .showTotal input{
+    color: #f3f3f3;
+  }
+
 
   </style>
   

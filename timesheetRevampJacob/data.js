@@ -1,6 +1,6 @@
 var data = {
   wk1: {
-    Tuesday: {
+    tuesday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -8,7 +8,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Wednesday: {
+    wednesday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -16,7 +16,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Thursday: {
+    thursday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -24,7 +24,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Friday: {
+    friday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -32,7 +32,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Saturday: {
+    saturday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -40,7 +40,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Sunday: {
+    sunday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -48,7 +48,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Monday: {
+    monday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -66,7 +66,7 @@ var data = {
     }
   },
   wk2: {
-    Tuesday: {
+    tuesday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -74,7 +74,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Wednesday: {
+    wednesday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -82,7 +82,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Thursday: {
+    thursday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -90,7 +90,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Friday: {
+    friday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -98,7 +98,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Saturday: {
+    saturday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -106,7 +106,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Sunday: {
+    sunday: {
       regular: 0,
       vacation: 0,
       sick: 0,
@@ -114,7 +114,7 @@ var data = {
       overtime: 0,
       holiday: 0
     },
-    Monday: {
+    monday: {
       regular: 0,
       vacation: 0,
       sick: 0,
